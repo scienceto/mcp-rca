@@ -49,6 +49,8 @@ Documentation: {data['incident']['documentation']}
 
 {prompt_template}
 """
+    # instead of printing to stdout configure a log stream
+    # and assign unique log id to each request execution
     print(prompt)
     try:
         result = loop.run_until_complete(mcp_client.process_query(prompt))
