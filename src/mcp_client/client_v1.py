@@ -70,7 +70,10 @@ class MCPClient:
         final_text = []
 
         # loop until LLM responses suggest tool use
+        # it's a good practice to put an upperbound on the number of calls
+        # to prevent LLM from cyclic reasoning
         while True:
+            # alternatively enable stream to process messages efficiently
             response = self.anthropic.messages.create(
                 model=MODEL,
                 max_tokens=MAX_TOKENS,
