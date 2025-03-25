@@ -5,6 +5,8 @@ This repository contains the code for a sample application, an MCP client, and a
 ## RCA Webhook Server
 The entry point for the webhook server responsible for RCA is located at `src/app.py`.
 
+Update `src/mcp_client/prompt_template.txt` to match your requirements and environment.
+
 To run the RCA server:
 
 ```bash
