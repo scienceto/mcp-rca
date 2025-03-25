@@ -8,6 +8,10 @@ app = Flask(__name__)
 mcp_client = MCPClient()
 
 # Create a single event loop that will live for the duration of the application
+# This is necessary because the MCPClient uses asyncio and we need to ensure
+# that we are not creating multiple event loops in a multi-threaded environment
+# This is a workaround for Flask's default behavior of creating a new event loop
+# for each request, which is not suitable for long-running tasks like MCPClient
 loop = asyncio.new_event_loop()
 asyncio.set_event_loop(loop)
 
