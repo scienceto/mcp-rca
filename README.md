@@ -13,11 +13,14 @@ To run the RCA server:
 # Navigate to the source directory
 cd src
 
-# Run using Flask (suitable for non-production use)
+# Run using debug server (suitable for non-production use)
 python3 app.py
 
-# For production use, it's recommended to run with Gunicorn
+# For production use, it's recommended to run with production ASGI servers such as Hypercorn
 ```
 
 ## Sample Application
 The code for the sample application used in the PoC is located in the `sample_app` directory.
+
+## Note
+- Even though I've used Quart to properly handle concurrent requests using event loop, I've not tested the application under load.
