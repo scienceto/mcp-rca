@@ -13,10 +13,10 @@ To run the RCA server:
 # Navigate to the source directory
 cd src
 
-# Run using Flask (suitable for non-production use)
+# Run using debug server (suitable for non-production use)
 python3 app.py
 
-# For production use, it's recommended to run with Gunicorn
+# For production use, it's recommended to run with production ASGI servers such as Hypercorn
 ```
 
 ## Sample Application
