@@ -21,3 +21,6 @@ python3 app.py
 
 ## Sample Application
 The code for the sample application used in the PoC is located in the `sample_app` directory.
+
+## Note
+- Even though I've used Quart to properly handle concurrent requests using event loop, I've not tested the application under load.

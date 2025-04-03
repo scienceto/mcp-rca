@@ -6,6 +6,8 @@ from contextlib import AsyncExitStack
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 
+# Using synchronous anthropic client for simplicity
+# Use async for performance under high load
 from anthropic import Anthropic
 from dotenv import load_dotenv
 
@@ -73,7 +75,9 @@ class MCPClient:
         # it's a good practice to put an upperbound on the number of calls
         # to prevent LLM from cyclic reasoning
         while True:
-            # alternatively enable stream to process messages efficiently
+            # Alternatively enable stream to process messages efficiently
+            # messages.create() being synchronous will block the event loop
+            # but good to prevent hitting API limits
             response = self.anthropic.messages.create(
                 model=MODEL,
                 max_tokens=MAX_TOKENS,
